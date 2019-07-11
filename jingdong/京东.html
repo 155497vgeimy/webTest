@@ -3,8 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+         li{
+            list-style-type: none;
+            height: 25px;
+            border-bottom: solid 1px #ffffff;
+            font-size: 15px;
+            cursor: default;
+        }
+        #dong #jd_mulu{
+            width: 190px;
+            height: 480px;
+            border: solid 1px #ff47ee;
+
+        }
+        #dong #jd_mulu_class{
+            width: 500px;
+            height: 480px;
+            border-bottom: solid 1px #df5000;
+            background-color: coral;
+            position: relative;
+            top: -480px;
+            left: 190px;
+        }
+
+        #wrap{
+            top: 0;
+            width:500px;
+            height: 480px;
+            position: absolute;
+            margin-top: 0;
+            margin-left: 200px;
+            overflow: hidden;
+            border: #df5000 1px solid;
+        }
+        #wrap div{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            left: 237px;
+            top: 0;
+        }
+        #wrap  div:nth-child(1){
+
+            background-image: url("img/5cdbbdf61c8a0.png");
+        }
+        #wrap  div:nth-child(2){
+
+            background-image: url("img/5cdbbdf91cc64.png");
+        }
+        #wrap  div:nth-child(3){
+
+            background-image: url("img/5cdbbe01c598d.png");
+        }
+        #wrap  div:nth-child(4){
+
+            background-image: url("img/b0fb8add4368f2d29f68a6c36167f8bb.jpg");
+        }
+        @keyframes in {
+            from{
+                left: 500px;
+            }to{
+                 left: 0;
+             }
+        }
+        @keyframes out {
+            from{
+                left:  0;
+            }to{
+                 left: -500px;
+             }
+        }
+        #wrap .a{
+            animation: in 1s;
+            left: 0;
+        }
+        #wrap .b{
+            animation: out 1s;
+            left: -500px;
+        }
+        #wrap ul{
+            list-style:none;
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+        }
+        #wrap ul li{
+            width: 10px;
+            height: 10px;
+            background-color: #eaffea;
+            border-radius: 50%;
+            float:left;
+            margin-right: 10px;
+            cursor:pointer;
+        }
+
+    </style>
 </head>
 <body>
+<div id="dong">
+    <div id="jd_mulu" >
+    <ul>
+        <li>家用电器</li>
+    </ul>
+    <ul>
+        <li>手机/运营商/数码</li>
+    </ul>
+    <ul>
+        <li>电脑/办公</li>
+    </ul>
+    <ul>
+        <li>家居/家具/家装/厨具</li>
+    </ul>
+    <ul>
+        <li>男装/女装/童装/内衣</li>
+    </ul>
+    <ul>
+        <li>美妆/个护清洁/宠物</li>
+    </ul>
+    <ul>
+        <li>女鞋/箱包/钟表/珠宝</li>
+    </ul>
+    <ul>
+        <li>男鞋/运动/户外</li>
+    </ul>
+    <ul>
+        <li>房产/汽车/汽车用品</li>
+    </ul>
+    <ul>
+        <li>母婴/玩具乐器</li>
+    </ul>
+    <ul>
+        <li>食品/酒类/生鲜/特产</li>
+    </ul>
+    <ul>
+        <li>艺术/礼品鲜花/农资绿植</li>
+    </ul>
+    <ul>
+        <li>医药保健/计生情趣</li>
+    </ul>
+    <ul>
+        <li>图书/文娱/电子书</li>
+    </ul>
+    <ul>
+        <li>机票/酒店/旅游/生活</li>
+    </ul>
+    <ul>
+        <li>理财/众筹/白条/保险</li>
+    </ul>
+    <ul>
+        <li>安装/维修/清洗/二手</li>
+    </ul>
+    <ul>
+        <li>工业品</li>
+    </ul>
+
+    </div>
+    <div id="jd_mulu_class">s
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    </div>
+
+    <div id="wrap">
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="b"></div>
+        <div class="b"></div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+</div>
+    <script src="jquery-3.4.1.min.js"></script>
+<script>
+   /* var d = document.getElementById("jd_mulu");
+    d.onmouseenter=function () {
+        alert("jd_mulu_class")
+    }*/
+    $("#dong #jd_mulu li").hover(
+        function () {
+            $("#dong #jd_mulu_class div").stop().hide()
+            $("#dong #jd_mulu_class #u li").hide()
+            $(this).siblings("div").show()
+        },
+        function () {
+            $("#dong #jd_mulu_class div").stop().show()
+            $("#dong #jd_mulu_class #u li").show()
+            $(this).siblings("div").hide()
+        }
+    )
+
+
+
+
+    $(function () {
+        $("#wrap ul li").mousemove(function () {
+            //获取当前元素的数组下标
+            var index =$(this).index();
+            $("#wrap div").eq(index).addClass("a").removeClass("b").siblings("div").addClass("b").removeClass("a")
+        });
+    });
+
+
+
+</script>
 
 </body>
 </html>
